@@ -6,6 +6,8 @@
 //#define N_REPEAT 0xFFFFF
 
 
+// all cycles using "volatile" iteration, for off optimization (deleting a loop)
+
 double print_time(char str[], clock_t t_clk, double dt_base)
 {
     double dt_clk_operation = ((double)t_clk) / N_REPEAT;
@@ -19,9 +21,11 @@ double print_time(char str[], clock_t t_clk, double dt_base)
 }
 
 
+
+
 int sum_int(int a, int b)
 {
-   for(unsigned long i = 0; i < N_REPEAT; i++)
+   for(volatile unsigned long i = 0; i < N_REPEAT; i++)
    {
        b = a + b;
    }
@@ -29,11 +33,10 @@ int sum_int(int a, int b)
 }
 
 
-
 int sub_int(int a, int b)
 {
     
-   for(unsigned long i = 0; i < N_REPEAT; i++)
+   for(volatile unsigned long i = 0; i < N_REPEAT; i++)
    {
        b = a - b;
    }
@@ -43,7 +46,7 @@ int sub_int(int a, int b)
 
 int mul_int(int a, int b)
 {
-   for(unsigned long i = 0; i < N_REPEAT; i++)
+   for(volatile unsigned long i = 0; i < N_REPEAT; i++)
    {
        b = a * b;
    }
@@ -53,7 +56,7 @@ int mul_int(int a, int b)
 
 int div_int(int a, int b)
 {
-   for(unsigned long i = 0; i < N_REPEAT; i++)
+   for(volatile unsigned long i = 0; i < N_REPEAT; i++)
    {
        b = a / b;
    }
@@ -62,29 +65,13 @@ int div_int(int a, int b)
 
 
 
-int div_mod_int(int a, int b)
-{
-    /* addition var for protection against division by zero
 
-    example #1:
-    a = 73
-    b = 5
-    1: 3 = 73 % 5
-    2: 1 = 73 % 3
-    3: 0 = 73 % 1
-    4 error 73 % 0
-    */
-    int c;
-    for(unsigned long i = 0; i < N_REPEAT; i++)
+int div_mod_int(volatile int a, volatile int b)
+{
+    volatile int c;
+    for(volatile unsigned long i = 0; i < N_REPEAT; i++)
     {
-        /*
-        if (b == 0)
-        {
-            printf("ERR\n");
-            return;
-        }
-        printf("%d = %d %% %d\n", a % b, a, b);*/
-        c = a % b;// тут проблема. Оптимизация сломает этот цикл
+        c = a % b;
     }
     return c;
 }
@@ -113,6 +100,8 @@ int main(int argc, char *argv[])
     t_clk = clock() - t_clk;
     dt_base = print_time("sum_int(1, 23)", t_clk, dt_base);
     
+    
+        
     t_clk = clock();
     tmp += sum_int(33, 1232);
     t_clk = clock() - t_clk;
@@ -147,9 +136,15 @@ int main(int argc, char *argv[])
     print_time("div_int(64, 2)", t_clk, dt_base);
     
     t_clk = clock();
-    tmp += div_mod_int(10, 5); 
+    tmp += div_mod_int(1345, 2); 
     t_clk = clock() - t_clk;
-    print_time("div_mod_int", t_clk, dt_base);
+    print_time("div_mod_int(1345, 2)", t_clk, dt_base);
+    
+    t_clk = clock();
+    tmp += div_mod_int(1345, 7); 
+    t_clk = clock() - t_clk;
+    print_time("div_mod_int(1345, 7)", t_clk, dt_base);
+    
     
     printf("\n");
     

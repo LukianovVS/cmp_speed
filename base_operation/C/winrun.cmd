@@ -1,4 +1,4 @@
-::@echo off
+@echo off
 
 set fout=%~pd0result.md
 set run=%~pd0run.exe 
@@ -16,14 +16,14 @@ call %run% g++ >> %fout%
 
 :: O1
 
-call gcc %~pd0main.c -O -o %run%
-call %run% "gcc -O" >> %fout%
+::call gcc %~pd0main.c -O -o %run%
+::call %run% "gcc -O" >> %fout%
 
 call gcc %~pd0main.c -O1 -o %run%
 call %run% "gcc -O1" >> %fout%
 
-call g++ %~pd0main.c -O -o %run%
-call %run% "g++ -O" >> %fout%
+::call g++ %~pd0main.c -O -o %run%
+::call %run% "g++ -O" >> %fout%
 
 call g++ %~pd0main.c -O1 -o %run%
 call %run% "g++ -O1" >> %fout%

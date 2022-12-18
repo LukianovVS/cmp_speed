@@ -3,138 +3,118 @@
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   2.256 ns |    -  |
-|    sum_int(33, 1232) |   2.241 ns |   1.0 |
-|              sub_int |   2.385 ns |   1.1 |
-|              mul_int |   2.988 ns |   1.3 |
-|         div_int(7,3) |   4.481 ns |   2.0 |
-|       div_int(72, 1) |   5.024 ns |   2.2 |
-|       div_int(64, 2) |   4.910 ns |   2.2 |
-|          div_mod_int |   4.300 ns |   1.9 |
+|       sum_int(1, 23) |   2.387 ns |    -  |
+|    sum_int(33, 1232) |   2.358 ns |   1.0 |
+|              sub_int |   2.334 ns |   1.0 |
+|              mul_int |   2.875 ns |   1.2 |
+|         div_int(7,3) |   4.342 ns |   1.8 |
+|       div_int(72, 1) |   4.772 ns |   2.0 |
+|       div_int(64, 2) |   4.604 ns |   1.9 |
+| div_mod_int(1345, 2) |   5.201 ns |   2.2 |
+| div_mod_int(1345, 7) |   5.224 ns |   2.2 |
 
 
 ### g++
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   2.271 ns |    -  |
-|    sum_int(33, 1232) |   2.276 ns |   1.0 |
-|              sub_int |   2.408 ns |   1.1 |
-|              mul_int |   3.092 ns |   1.4 |
-|         div_int(7,3) |   4.689 ns |   2.1 |
-|       div_int(72, 1) |   5.024 ns |   2.2 |
-|       div_int(64, 2) |   4.755 ns |   2.1 |
-|          div_mod_int |   4.156 ns |   1.8 |
-
-
-### gcc -O
-
-|      operation       |  time, us  |  coef |
-|----------------------|------------|-------|
-|       sum_int(1, 23) |   0.302 ns |    -  |
-|    sum_int(33, 1232) |   0.586 ns |   1.9 |
-|              sub_int |   0.349 ns |   1.2 |
-|              mul_int |   0.588 ns |   2.0 |
-|         div_int(7,3) |   4.151 ns |  13.8 |
-|       div_int(72, 1) |   4.508 ns |  15.0 |
-|       div_int(64, 2) |   4.376 ns |  14.5 |
-|          div_mod_int |   0.293 ns |   1.0 |
+|       sum_int(1, 23) |   2.541 ns |    -  |
+|    sum_int(33, 1232) |   2.531 ns |   1.0 |
+|              sub_int |   2.358 ns |   0.9 |
+|              mul_int |   2.879 ns |   1.1 |
+|         div_int(7,3) |   4.368 ns |   1.7 |
+|       div_int(72, 1) |   4.840 ns |   1.9 |
+|       div_int(64, 2) |   4.662 ns |   1.8 |
+| div_mod_int(1345, 2) |   5.179 ns |   2.0 |
+| div_mod_int(1345, 7) |   5.176 ns |   2.0 |
 
 
 ### gcc -O1
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.289 ns |    -  |
-|    sum_int(33, 1232) |   0.587 ns |   2.0 |
-|              sub_int |   0.350 ns |   1.2 |
-|              mul_int |   0.575 ns |   2.0 |
-|         div_int(7,3) |   4.156 ns |  14.4 |
-|       div_int(72, 1) |   4.576 ns |  15.8 |
-|       div_int(64, 2) |   4.393 ns |  15.2 |
-|          div_mod_int |   0.293 ns |   1.0 |
-
-
-### g++ -O
-
-|      operation       |  time, us  |  coef |
-|----------------------|------------|-------|
-|       sum_int(1, 23) |   0.289 ns |    -  |
-|    sum_int(33, 1232) |   0.287 ns |   1.0 |
-|              sub_int |   0.348 ns |   1.2 |
-|              mul_int |   0.587 ns |   2.0 |
-|         div_int(7,3) |   4.073 ns |  14.1 |
-|       div_int(72, 1) |   4.525 ns |  15.6 |
-|       div_int(64, 2) |   4.381 ns |  15.1 |
-|          div_mod_int |   0.587 ns |   2.0 |
+|       sum_int(1, 23) |   2.413 ns |    -  |
+|    sum_int(33, 1232) |   2.406 ns |   1.0 |
+|              sub_int |   2.344 ns |   1.0 |
+|              mul_int |   2.442 ns |   1.0 |
+|         div_int(7,3) |   4.193 ns |   1.7 |
+|       div_int(72, 1) |   4.371 ns |   1.8 |
+|       div_int(64, 2) |   4.271 ns |   1.8 |
+| div_mod_int(1345, 2) |   5.098 ns |   2.1 |
+| div_mod_int(1345, 7) |   4.994 ns |   2.1 |
 
 
 ### g++ -O1
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.292 ns |    -  |
-|    sum_int(33, 1232) |   0.295 ns |   1.0 |
-|              sub_int |   0.352 ns |   1.2 |
-|              mul_int |   0.582 ns |   2.0 |
-|         div_int(7,3) |   4.125 ns |  14.1 |
-|       div_int(72, 1) |   4.627 ns |  15.8 |
-|       div_int(64, 2) |   4.429 ns |  15.2 |
-|          div_mod_int |   0.595 ns |   2.0 |
+|       sum_int(1, 23) |   2.436 ns |    -  |
+|    sum_int(33, 1232) |   2.416 ns |   1.0 |
+|              sub_int |   2.350 ns |   1.0 |
+|              mul_int |   2.435 ns |   1.0 |
+|         div_int(7,3) |   4.036 ns |   1.7 |
+|       div_int(72, 1) |   4.464 ns |   1.8 |
+|       div_int(64, 2) |   4.354 ns |   1.8 |
+| div_mod_int(1345, 2) |   5.215 ns |   2.1 |
+| div_mod_int(1345, 7) |   5.191 ns |   2.1 |
 
 
 ### gcc -O2
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.000 ns |    -  |
-|    sum_int(33, 1232) |   0.000 ns |   nan |
-|              sub_int |   0.357 ns |   inf |
-|              mul_int |   0.583 ns |   inf |
-|         div_int(7,3) |   4.157 ns |   inf |
-|       div_int(72, 1) |   4.556 ns |   inf |
-|       div_int(64, 2) |   4.376 ns |   inf |
-|          div_mod_int |   0.000 ns |   nan |
+|       sum_int(1, 23) |   2.429 ns |    -  |
+|    sum_int(33, 1232) |   2.422 ns |   1.0 |
+|              sub_int |   2.447 ns |   1.0 |
+|              mul_int |   2.454 ns |   1.0 |
+|         div_int(7,3) |   4.133 ns |   1.7 |
+|       div_int(72, 1) |   4.564 ns |   1.9 |
+|       div_int(64, 2) |   4.431 ns |   1.8 |
+| div_mod_int(1345, 2) |   5.316 ns |   2.2 |
+| div_mod_int(1345, 7) |   5.310 ns |   2.2 |
 
 
 ### g++ -O2
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.000 ns |    -  |
-|    sum_int(33, 1232) |   0.000 ns |   nan |
-|              sub_int |   0.352 ns |   inf |
-|              mul_int |   0.583 ns |   inf |
-|         div_int(7,3) |   4.084 ns |   inf |
-|       div_int(72, 1) |   4.609 ns |   inf |
-|       div_int(64, 2) |   4.514 ns |   inf |
-|          div_mod_int |   0.000 ns |   nan |
+|       sum_int(1, 23) |   2.456 ns |    -  |
+|    sum_int(33, 1232) |   2.466 ns |   1.0 |
+|              sub_int |   2.450 ns |   1.0 |
+|              mul_int |   2.459 ns |   1.0 |
+|         div_int(7,3) |   4.129 ns |   1.7 |
+|       div_int(72, 1) |   4.574 ns |   1.9 |
+|       div_int(64, 2) |   4.407 ns |   1.8 |
+| div_mod_int(1345, 2) |   5.308 ns |   2.2 |
+| div_mod_int(1345, 7) |   5.311 ns |   2.2 |
 
 
 ### gcc -O3
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.000 ns |    -  |
-|    sum_int(33, 1232) |   0.000 ns |   nan |
-|              sub_int |   0.354 ns |   inf |
-|              mul_int |   0.296 ns |   inf |
-|         div_int(7,3) |   4.170 ns |   inf |
-|       div_int(72, 1) |   4.628 ns |   inf |
-|       div_int(64, 2) |   4.398 ns |   inf |
-|          div_mod_int |   0.000 ns |   nan |
+|       sum_int(1, 23) |   2.452 ns |    -  |
+|    sum_int(33, 1232) |   2.448 ns |   1.0 |
+|              sub_int |   2.440 ns |   1.0 |
+|              mul_int |   2.470 ns |   1.0 |
+|         div_int(7,3) |   4.118 ns |   1.7 |
+|       div_int(72, 1) |   4.576 ns |   1.9 |
+|       div_int(64, 2) |   4.427 ns |   1.8 |
+| div_mod_int(1345, 2) |   2.449 ns |   1.0 |
+| div_mod_int(1345, 7) |   2.451 ns |   1.0 |
 
 
 ### g++ -O3
 
 |      operation       |  time, us  |  coef |
 |----------------------|------------|-------|
-|       sum_int(1, 23) |   0.000 ns |    -  |
-|    sum_int(33, 1232) |   0.000 ns |   nan |
-|              sub_int |   0.351 ns |   inf |
-|              mul_int |   0.288 ns |   inf |
-|         div_int(7,3) |   4.161 ns |   inf |
-|       div_int(72, 1) |   4.590 ns |   inf |
-|       div_int(64, 2) |   4.377 ns |   inf |
-|          div_mod_int |   0.000 ns |   nan |
+|       sum_int(1, 23) |   2.459 ns |    -  |
+|    sum_int(33, 1232) |   2.466 ns |   1.0 |
+|              sub_int |   2.427 ns |   1.0 |
+|              mul_int |   2.473 ns |   1.0 |
+|         div_int(7,3) |   4.125 ns |   1.7 |
+|       div_int(72, 1) |   4.564 ns |   1.9 |
+|       div_int(64, 2) |   4.422 ns |   1.8 |
+| div_mod_int(1345, 2) |   2.450 ns |   1.0 |
+| div_mod_int(1345, 7) |   2.448 ns |   1.0 |
 
